@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableColumn?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1411.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hhr.accountbook.controller.impl.MainControllerAbstractImpl">
+   <center>
+      <JFXTabPane fx:id="mainViewTabPane" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="消费预览">
+              <content>
+                <AnchorPane fx:id="anchorPaneOne" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <PieChart fx:id="dataPieChart" layoutX="338.0" layoutY="32.0" prefHeight="680.0" prefWidth="985.0" />
+                        <JFXDatePicker fx:id="endDatePicker" layoutX="82.0" layoutY="349.0" />
+                        <JFXDatePicker fx:id="startDatePicker" layoutX="82.0" layoutY="191.0" />
+                        <ImageView fitHeight="99.0" fitWidth="340.0" layoutX="72.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/startDate.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="99.0" fitWidth="340.0" layoutX="72.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/endDate.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="85.0" fitWidth="180.0" layoutX="14.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/totalSpendImage.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="sumMoneyLabel" layoutX="173.0" layoutY="544.0" prefHeight="93.0" prefWidth="341.0">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="账单详情">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTreeTableView fx:id="billTreeTableView" layoutX="35.0" layoutY="118.0" prefHeight="660.0" prefWidth="1344.0">
+                           <columns>
+                              <JFXTreeTableColumn fx:id="idTreeTableColumn" editable="false" prefWidth="180.0" text="编号" />
+                              <JFXTreeTableColumn fx:id="detailsTreeTableColumn" editable="false" prefWidth="397.0" text="详情" />
+                              <JFXTreeTableColumn fx:id="paymentMethodTreeTableColumn" editable="false" prefWidth="190.0" text="支付方式" />
+                              <JFXTreeTableColumn fx:id="spendingTypeTreeTableColumn" editable="false" prefWidth="190.0" text="类别" />
+                              <JFXTreeTableColumn fx:id="moneyTreeTableColumn" editable="false" prefWidth="190.0" text="金额" />
+                              <JFXTreeTableColumn fx:id="paytimeTreeTableColumn" editable="false" prefWidth="190.0" text="时间" />
+                           </columns>
+                        </JFXTreeTableView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/paymentMethod.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="342.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/spendingType.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="599.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/startTime.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="917.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/endTime.png" />
+                           </image>
+                        </ImageView>
+                        <JFXComboBox fx:id="paymentMethodComboBox" layoutX="169.0" layoutY="54.0" prefHeight="23.0" prefWidth="149.0" />
+                        <JFXComboBox fx:id="spendingTypeComboBox" layoutX="429.0" layoutY="54.0" prefHeight="23.0" prefWidth="149.0" />
+                        <JFXDatePicker fx:id="startTimeDatePicker" layoutX="731.0" layoutY="54.0" />
+                        <JFXDatePicker fx:id="endTimeDatePicker" layoutX="1048.0" layoutY="54.0" />
+                        <ImageView fx:id="refreshButtonImageView" fitHeight="49.0" fitWidth="185.0" layoutX="1267.0" layoutY="3.0" onMouseClicked="#refreshButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/refresh.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="deleteBillButtonImageView" fitHeight="51.0" fitWidth="86.0" layoutX="1267.0" layoutY="65.0" onMouseClicked="#deleteBillButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/deleteAccountButtonImage.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="账单管理">
+              <content>
+                <AnchorPane fx:id="billManagerTabPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="311.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/spendingType.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="9.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/paymentMethod.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="77.0" fitWidth="556.0" layoutX="541.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/detailsImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="148.0" fitWidth="329.0" layoutX="14.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/moneyImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/startTime.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="343.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/endTime.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="addBillButtonImageView" fitHeight="81.0" fitWidth="344.0" layoutX="1239.0" layoutY="28.0" onMouseClicked="#addBillButtonImageClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/addBillButtonImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="79.0" fitWidth="251.0" layoutX="661.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/pathImage.png" />
+                           </image>
+                        </ImageView>
+                        <JFXComboBox fx:id="paymentMethodComboBox2" layoutX="142.0" layoutY="54.0" prefHeight="23.0" prefWidth="149.0" />
+                        <JFXComboBox fx:id="spendingTypeComboBox2" layoutX="397.0" layoutY="54.0" prefHeight="23.0" prefWidth="149.0" />
+                        <JFXTextField fx:id="detailsTextField" layoutX="633.0" layoutY="54.0" prefHeight="23.0" prefWidth="586.0" />
+                        <JFXTextField fx:id="moneyTextField" layoutX="111.0" layoutY="144.0" prefHeight="23.0" prefWidth="109.0" />
+                        <JFXDatePicker fx:id="exportExcelStartTimeDatePicker" layoutX="150.0" layoutY="285.0" />
+                        <JFXDatePicker fx:id="exportExcelEndTimeDatePicker" layoutX="479.0" layoutY="285.0" />
+                        <ImageView fx:id="exportExcelButtonImageView" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="379.0" onMouseClicked="#exportExcelButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/exportToExcelButtonImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="importExcelButtonImageView" fitHeight="150.0" fitWidth="200.0" layoutX="272.0" layoutY="379.0" onMouseClicked="#importExcelButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/importExcelButtonImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="exportExcelToTemplateButtonImageView" fitHeight="87.0" fitWidth="273.0" layoutX="526.0" layoutY="375.0" onMouseClicked="#exportExcelToTemplateButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/exportingAnExcelTemplateButtonImgae.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="exportPathButtonImageView" fitHeight="150.0" fitWidth="200.0" layoutX="942.0" layoutY="368.0" onMouseClicked="#exportPathButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/exportPathImage.png" />
+                           </image>
+                        </ImageView>
+                        <JFXTextField fx:id="exportPathTextField" disable="true" layoutX="736.0" layoutY="285.0" prefHeight="23.0" prefWidth="661.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="accountManagerTab" text="用户管理">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTreeTableView fx:id="accountTreeTableView" layoutX="14.0" layoutY="14.0" prefHeight="768.0" prefWidth="1242.0">
+                           <columns>
+                              <JFXTreeTableColumn fx:id="accountNameTreeTableColumn" editable="false" prefWidth="592.0" text="账号" />
+                              <JFXTreeTableColumn fx:id="passwordTreeTableColumn" editable="false" minWidth="0.0" prefWidth="649.0" text="密码" />
+                           </columns></JFXTreeTableView>
+                        <ImageView fx:id="editAccountButtonImageView" fitHeight="83.0" fitWidth="143.0" layoutX="1263.0" layoutY="87.0" onMouseClicked="#editAccountButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/editAccountButtonImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="addAccountButtonImageView" fitHeight="79.0" fitWidth="133.0" layoutX="1262.0" layoutY="323.0" onMouseClicked="#addAccountButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/addAccountButtonImage.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="deleteAccountButtonImageView" fitHeight="79.0" fitWidth="133.0" layoutX="1262.0" layoutY="551.0" onMouseClicked="#deleteAccountButtonClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/deleteAccountButtonImage.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </center>
+   <top>
+      <HBox prefHeight="38.0" prefWidth="1207.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="accountNameLabel" prefHeight="54.0" prefWidth="1256.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="logoutImageButton" fitHeight="54.0" fitWidth="119.0" onMouseClicked="#logoutImageButtonClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/loginOutImage.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

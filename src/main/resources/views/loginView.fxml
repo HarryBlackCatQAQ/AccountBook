@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hhr.accountbook.controller.impl.LoginControllerAbstractImpl">
+   <children>
+      <ImageView fitHeight="87.0" fitWidth="554.0" layoutX="37.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/accountImage.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="554.0" layoutX="37.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/passwordImage.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="loginLogoImageView" fitHeight="299.0" fitWidth="243.0" layoutX="188.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/loginLogo.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="centerVBox" layoutX="189.0" layoutY="121.0" prefHeight="132.0" prefWidth="260.0" spacing="75.0">
+         <children>
+            <JFXTextField fx:id="userTextField" prefHeight="26.0" prefWidth="312.0" style="-fx-font-size: 20px;" />
+            <JFXPasswordField fx:id="passwordField" style="-fx-font-size: 20px;" />
+         </children>
+      </VBox>
+   </children>
+</Pane>
